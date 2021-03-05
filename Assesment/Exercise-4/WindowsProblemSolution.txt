@@ -1,0 +1,9 @@
+Troubleshooting Process
+The issue in the windows machine with 503 exceptions on the HTTP request(http://localhost) checked the issue DefaultApplicationPool Identity set to AppPoolServiceUser, tried to start manually also it isn't get started then checked the event logs there is the issue in WAS (Application pool DefaultAppPool has been disabled. Windows Process Activation Service (WAS) encountered a failure when it started a worker process to serve the application pool.) and changed the DefaultApplicationPool to the builtin identity ApplicationPoolIdentity, then IIS web server started working fine.
+
+Steps:
+1. Open the Run type the inetmgr it will open the IIS manager then go to the left pane gowtham-win and expand you can find the ApplicationPools, click on that you can able to find the DefaultApplicationPool then right-click on that, select Advanced settings, Process Model, Identity change to the Built-in account ApplicationPoolIndentity.
+
+2. Start the DefaultApplicationPool on selecting the pool right click on the start.
+
+3. Restart the Default Web Site and retry the http://localhost in the server homepage of the IIS server will load.
