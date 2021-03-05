@@ -1,7 +1,0 @@
-	Troubleshooting Process
-	The issue with the Redis-server is not starting checked with the (sudo systemctl status redis) command the error is advanced data-store is not able to start tried with changing the configuration file in (/etc/redis/redis.conf, /etc/systemd/system/redis.service) reloaded the daemon, tried to start the redis again but server not started, then check the issue with the command (journalctl -xe) it shows the permissions error for the folder and gave the permission, restarted the redis-server then working fine.
-
-	Steps:
-	1. The solution for the Redis-server is not starting seems that redis folder should have a execute permission at parent dir. Then provided the execute permission(chmod +x /var/log/) then reload the daemon(systemctl daemon-reload), restarted the redis-server(sudo systemctl restart redis), checked the status of the redis service(sudo systemctl status redis) and it is working fine.
-
-	2.The alternate solution for this issue which is manually need to run the command given(/usr/local/bin/redis-server /etc/redis/redis.conf) at everytime restart of the machine.
